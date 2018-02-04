@@ -4,18 +4,10 @@ import java.util.Date;
 import com.maduar.miaosha.domain.Goods;
 
 public class GoodsVo extends Goods {
+  private Double miaoshaPrice;
   private Integer stockCount;
   private Date startDate;
   private Date endDate;
-  private Double miaoshaPrice;
-
-  public Double getMiaoshaPrice() {
-    return miaoshaPrice;
-  }
-
-  public void setMiaoshaPrice(Double miaoshaPrice) {
-    this.miaoshaPrice = miaoshaPrice;
-  }
 
   public Integer getStockCount() {
     return stockCount;
@@ -39,5 +31,13 @@ public class GoodsVo extends Goods {
 
   public void setEndDate(Date endDate) {
     this.endDate = endDate;
+  }
+
+  public Double getMiaoshaPrice() {
+    return miaoshaPrice;
+  }
+
+  public void setMiaoshaPrice(Double miaoshaPrice) {
+    this.miaoshaPrice = miaoshaPrice;
   }
 }

@@ -4,10 +4,18 @@ public class Goods {
   private Long id;
   private String goodsName;
   private String goodsTitle;
-  private String goodsImag;
+  private String goodsImg;
   private String goodsDetail;
   private Double goodsPrice;
   private Integer goodsStock;
+
+  public String getGoodsImg() {
+    return goodsImg;
+  }
+
+  public void setGoodsImg(String goodsImg) {
+    this.goodsImg = goodsImg;
+  }
 
   public Long getId() {
     return id;
@@ -33,13 +41,6 @@ public class Goods {
     this.goodsTitle = goodsTitle;
   }
 
-  public String getGoodsImag() {
-    return goodsImag;
-  }
-
-  public void setGoodsImag(String goodsImag) {
-    this.goodsImag = goodsImag;
-  }
 
   public String getGoodsDetail() {
     return goodsDetail;
