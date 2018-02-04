@@ -5,13 +5,13 @@
 <web-app>
 	<display-name>miaosha00</display-name>
 
-	<listener>
+	<!-- <listener>
 		<listener-class>ch.qos.logback.ext.spring.web.LogbackConfigListener</listener-class>
 	</listener>
 
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
+	</listener> -->
 
 	<servlet>
 
