@@ -33,17 +33,16 @@ public class DataSourceConfig {
   private Boolean testOnBorrow;
   private Boolean testOnReturn;
   private Boolean poolPreparedStatements;
-//  private Integer maxOpenPreparedStatements;
-//
-//
-//  
-//  public Integer getMaxOpenPreparedStatements() {
-//    return maxOpenPreparedStatements;
-//  }
-//
-//  public void setMaxOpenPreparedStatements(Integer maxOpenPreparedStatements) {
-//    this.maxOpenPreparedStatements = maxOpenPreparedStatements;
-//  }
+  private Integer maxOpenPreparedStatements;
+
+
+  public Integer getMaxOpenPreparedStatements() {
+    return maxOpenPreparedStatements;
+  }
+
+  public void setMaxOpenPreparedStatements(Integer maxOpenPreparedStatements) {
+    this.maxOpenPreparedStatements = maxOpenPreparedStatements;
+  }
 
   public Logger getLogger() {
     return logger;
@@ -217,7 +216,7 @@ public class DataSourceConfig {
     dataSource.setTestOnBorrow(testOnBorrow);
     dataSource.setTestOnReturn(testOnReturn);
     dataSource.setPoolPreparedStatements(poolPreparedStatements);
-//    dataSource.setMaxOpenPreparedStatements(maxOpenPreparedStatements);
+    dataSource.setMaxOpenPreparedStatements(maxOpenPreparedStatements);
     try {
       dataSource.setFilters(filters);
     } catch (SQLException e) {
