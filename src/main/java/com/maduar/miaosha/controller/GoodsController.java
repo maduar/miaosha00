@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.alibaba.druid.util.StringUtils;
@@ -31,13 +32,39 @@ public class GoodsController {
 
   @RequestMapping("/to_list")
   public String to_list(Model model, MiaoshaUser miaoshaUser) {
-
     model.addAttribute("user", miaoshaUser);
-    // List<GoodsVo> goodsList = goodsService.listGoodsVo();
     List<GoodsVo> goodsList = goodsService.listGoodsVo();
-     System.out.print(JSON.toJSONString(goodsList));
-    // model.addAttribute("goodsList", goodsList);
     model.addAttribute("goodsList", goodsList);
     return "goods_list";
+  }
+
+  @RequestMapping("/to_detail/{goodsId}")
+  public String to_detail(Model model, MiaoshaUser miaoshaUser,
+      @PathVariable("goodsId") Long goodsId) {
+    // snowflake
+    model.addAttribute("user", miaoshaUser);
+    GoodsVo goodsVo = goodsService.getGoodsVoByGoodsId(goodsId);
+    Long startAt = goodsVo.getStartDate().getTime();
+    Long endAt = goodsVo.getEndDate().getTime();
+    Long now = System.currentTimeMillis();
+    
+    int miaoshaState = 0;
+    int remainSeconds = 0;
+    
+    if (now < startAt) {// miaosha not start
+      miaoshaState = 0;
+      remainSeconds = (int) ((startAt - now) / 1000);
+      
+    } else if (now > endAt) { // over time
+      miaoshaState = 2;
+      remainSeconds = -1;
+    } else {
+      miaoshaState = 1;
+      remainSeconds = 0;
+    }
+    model.addAttribute("miaoshaState", miaoshaState);
+    model.addAttribute("miaoshaState", miaoshaState);
+    model.addAttribute("goods", goodsVo);
+    return "goods_detail";
   }
 }

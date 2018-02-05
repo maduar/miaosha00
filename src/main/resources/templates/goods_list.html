@@ -6,6 +6,25 @@
 <title>hello</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
+<!-- jquery -->
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<!-- bootstrap -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/bootstrap/css/bootstrap.min.css}" />
+<script type="text/javascript"
+	th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+<!-- jquery-validator -->
+<script type="text/javascript"
+	th:src="@{/jquery-validation/jquery.validate.min.js}"></script>
+<script type="text/javascript"
+	th:src="@{/jquery-validation/localization/messages_zh.min.js}"></script>
+<!-- layer -->
+<script type="text/javascript" th:src="@{/layer/layer.js}"></script>
+<!-- md5.js -->
+<script type="text/javascript" th:src="@{/js/md5.min.js}"></script>
+<!-- common.js -->
+<script type="text/javascript" th:src="@{/js/common.js}"></script>
+
 </head>
 
 <body>
@@ -23,12 +42,11 @@
 			</tr>
 			<tr th:each="goods,goodsStat : ${goodsList}">
 				<td th:text="${goods.goodsName}"></td>
-				<td><img th:src="@{${goods.goodsImg}}" width="100"
-					height="100" /></td>
+				<td><img th:src="@{${goods.goodsImg}}" width="100" height="100" /></td>
 				<td th:text="${goods.goodsPrice}"></td>
 				<td th:text="${goods.miaoshaPrice}"></td>
 				<td th:text="${goods.stockCount}"></td>
-				<td><a th:href="'/goods/to_detail/'+${goods.id}">详情</a></td>
+				<td><a th:href="'/miaosha00/goods/to_detail/'+${goods.id}">详情</a></td>
 			</tr>
 		</table>
 	</div>

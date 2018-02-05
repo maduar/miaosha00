@@ -27,6 +27,11 @@ public class GoodsService {
   public List<Goods> listGoods() {
     return goodsDao.listGoods();
   }
+
+  public GoodsVo getGoodsVoByGoodsId(Long goodsId) {
+    // TODO Auto-generated method stub
+    return goodsDao.getGoodsVoByGoodsId(goodsId);
+  }
 }
 
 
