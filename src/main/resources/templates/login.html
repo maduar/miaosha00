@@ -58,8 +58,9 @@
 </form>
 </body>
 <script>
-var project_path = "/" + location.pathname.split("/")[1];
-//var project_path = "";
+var project_path = ( location.hostname === 'localhost' || location.hostname === '127.0.0.1' )
+					? ''
+					: "/" + location.pathname.split("/")[1];
 
 function login(){
 	$("#loginForm").validate({
